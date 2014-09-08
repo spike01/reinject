@@ -15,7 +15,22 @@ class Array
     array.reinject(memo, &block)
   end
 
+# preparing to add symbol handling
 
+  #def infect(default = nil, symb = nil, &block)
+    #memo = default || self.first
+    #start = (memo == default ? 0 : 1)
+    #self.drop(start).each { |element| memo = yield(memo, element) }  
+    #memo
+  #end
+
+  #def reinject(default = nil, symb = nil, &block)
+    #array = self.dup 
+    #memo = default.nil? ? array.shift : default
+    #memo = yield(memo, array.shift)
+    #return memo if array.empty?
+    #array.reinject(memo, &block)
+  #end
 
 
 end

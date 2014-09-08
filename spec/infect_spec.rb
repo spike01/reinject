@@ -31,7 +31,7 @@ describe Array do
       expect(string_array.infect(&:+)).to eq(string_array.inject(&:+))
     end
 
-    it 'can take a symbol as an argument' do
+    xit 'can take a symbol as an argument' do
       expect(array.infect(:+)).to eq(array.inject(:+))
     end
   end
@@ -55,12 +55,8 @@ describe Array do
       expect(array.reinject { |x, y| x - y }).to eq(array.inject {|x, y| x - y } )
     end 
 
-    #it 'can be called with an argument' do
-      #expect(array.reinject(20) { |x, y| x + y }).to eq(array.inject(20) {|x, y| x + y } )
-    #end
-
     it 'can be called with an argument' do
-      expect(array.reinject(20) { |x, y| x + y }).to eq(75)
+      expect(array.reinject(20) { |x, y| x + y }).to eq(array.inject(20) { |x, y| x + y })
     end
 
     it 'can take a symbol block as an argument' do
