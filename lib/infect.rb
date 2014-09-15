@@ -1,16 +1,16 @@
 class Array
 
-  def infect(default = nil, symb = nil, &block)
+  def infect(default = nil)
     memo = default || self.first
     start = (memo == default ? 0 : 1)
     self.drop(start).each { |element| memo = yield(memo, element) }  
     memo
   end
 
-  def reinject(default = nil, symb = nil, &block)
+  def reinject(default = nil, &block)
     array = self.dup 
     memo = default.nil? ? array.shift : default
-    memo = yield(memo, array.shift)
+    memo = block.call(memo, array.shift)
     return memo if array.empty?
     array.reinject(memo, &block)
   end
