@@ -37,6 +37,10 @@ describe Array do
         expect(array.infect(symbol)).to eq(array.inject(symbol))
       end
     end
+
+    it 'takes a symbol and a starting value' do
+      expect(array.infect(10, :+)).to eq(array.inject(10, :+))
+    end
   end
 
   context '#reinject (inject with recursion)' do
@@ -75,6 +79,10 @@ describe Array do
       it "takes a #{symbol} symbol as an argument" do
         expect(array.reinject(symbol)).to eq(array.inject(symbol))
       end
+    end
+
+    it 'takes a symbol and a starting value' do
+      expect(array.reinject(10, :+)).to eq(array.inject(10, :+))
     end
   end
 end
