@@ -11,7 +11,7 @@ class Array
 
   def reinject(default = nil, symbol = nil, &block)
     return reinject(&default) if default.is_a?(Symbol)
-    return infect(default, &symbol) if symbol
+    return reinject(default, &symbol) if symbol
     array = dup
     memo = default.nil? ? array.shift : default
     memo = block.call(memo, array.shift)
